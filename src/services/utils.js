@@ -1,3 +1,6 @@
+import $config from "./config";
+import $dom from "./dom";
+
 export const applyDrag = (arr, dragResult) => {
   const { removedIndex, addedIndex, payload } = dragResult;
   if (removedIndex === null && addedIndex === null) return arr;
@@ -15,3 +18,9 @@ export const applyDrag = (arr, dragResult) => {
 
   return result;
 };
+
+const checkIfDragging = () => {
+  return $dom.body.classList.contains($config.isDraggingClass);
+};
+
+export const isDragging = checkIfDragging();

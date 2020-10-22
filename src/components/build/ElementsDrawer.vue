@@ -1,5 +1,8 @@
 <template>
-  <v-navigation-drawer id="elements" app permanent clipped>
+  <div>
+    <v-toolbar dense flat dark>
+      <v-toolbar-title>{{ $t("build.elementsDrawer.title") }}</v-toolbar-title>
+    </v-toolbar>
     <v-list dense nav>
       <DropContainer
         :class="$config.dragContainerClass"
@@ -10,6 +13,7 @@
           <v-list-item
             link
             class="draggable-item"
+            @dblclick.stop.prevent="clickAddItem(item)"
             @mouseover="onOverItem(item)"
             @mouseenter="onOverItem(item)"
           >
@@ -23,7 +27,7 @@
         </DraggableItem>
       </DropContainer>
     </v-list>
-  </v-navigation-drawer>
+  </div>
 </template>
 <script>
 import { mapGetters, mapActions } from "vuex";
@@ -41,6 +45,15 @@ export default {
     ...mapGetters({
       currentItem: "build/currentItem",
     }),
+
+    show: {
+      get() {
+        return this.value;
+      },
+      set(newVal) {
+        return newVal;
+      },
+    },
   },
 
   methods: {
@@ -48,15 +61,15 @@ export default {
       setCurrentItem: "build/setCurrentItem",
     }),
 
-    isDragging() {
-      return this.$dom.body.classList.contains(this.$config.isDraggingClass);
-    },
-
     // Drag item events
     onOverItem(item) {
-      if (!this.isDragging()) {
+      if (!this.$utils.isDragging) {
         this.setCurrentItem(item);
       }
+    },
+
+    clickAddItem(item) {
+      this.$emit("click-add-item", item);
     },
   },
 
@@ -70,5 +83,6 @@ export default {
 <style lang="scss">
 #elements {
   overflow: visible !important;
+  top: 64px !important;
 }
 </style>

@@ -1,0 +1,12 @@
+{
+  "appTitle": "PageBuilder",
+  "build": {
+    "elementsDrawer": {
+      "title": "Elements"
+    },
+    "propsDrawer": {
+      "title": "{element} Properties"
+    },
+    "noElementsText": "Drop some items here"
+  }
+}

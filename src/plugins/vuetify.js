@@ -8,7 +8,9 @@ const config = {
   theme: {
     dark: false,
     themes: {
-      light: {},
+      light: {
+        primary: "#AA00FF",
+      },
       dark: {},
     },
   },

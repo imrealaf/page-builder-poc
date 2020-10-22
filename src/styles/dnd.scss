@@ -4,24 +4,59 @@
 
   .smooth-dnd-ghost {
     transform: translateY(-50px) !important;
+    background: $dnd-ghost-color;
   }
 }
 
 .drop-container {
   .drop-preview {
     background-color: $dnd-preview-color;
-    border: 1px dashed #abc;
     margin: 5px;
   }
 
   .dropped-item {
+    position: relative;
     cursor: pointer;
     border: $dnd-dropped-item-border;
     padding: 20px;
-    // transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    overflow: visible;
 
     &:hover {
       border-color: $dnd-dropped-item-border-color-hover;
+
+      .smooth-dnd-disable-touch-action & {
+        border-color: transparent;
+      }
+    }
+  }
+
+  .dropped-item-actions {
+    position: absolute;
+    right: -30px;
+    visibility: hidden;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .dropped-item-wrapper {
+    position: relative;
+
+    &.active {
+      overflow: visible !important;
+
+      .dropped-item {
+        border: $dnd-dropped-item-border-size solid
+          $dnd-dropped-item-border-color-active;
+
+        .smooth-dnd-disable-touch-action & {
+          border-color: transparent;
+        }
+      }
+
+      .dropped-item-actions {
+        visibility: visible;
+      }
     }
   }
 
