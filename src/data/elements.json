@@ -1,0 +1,12 @@
+[
+  {
+    "id": "text-element",
+    "title": "Text",
+    "icon": "short_text",
+    "component": "TextElement",
+    "class": "text-element",
+    "props": {
+      "value": ""
+    }
+  }
+]

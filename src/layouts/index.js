@@ -1,11 +1,14 @@
 import Vue from "vue";
 
-// import Default from "./Default";
+import Default from "./Default";
+import Protected from "./Protected";
+
 /**
  * Set layouts
  */
 const layouts = {
-  // "default-layout": Default,
+  "default-layout": Default,
+  "protected-layout": Protected,
 };
 
 /**
