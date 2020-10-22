@@ -1,18 +1,22 @@
 import Vue from "vue";
+
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import vuetify from "./plugins/vuetify";
+import services from "@/services";
 
-import element from "./element";
+import "@/styles/main.scss";
+import "@/plugins";
+import "@/filters";
+import "@/layouts";
 
 Vue.config.productionTip = false;
-Vue.prototype["$element"] = element;
-Vue.prototype["$config"] = {
-  currentItemAttr: "data-current-item",
-  dropContainerClass: "drop-container",
-  touchDisabledClass: "smooth-dnd-disable-touch-action",
-};
+
+const injectables = { ...services };
+for (const key in injectables) {
+  Vue.prototype[key] = injectables[key];
+}
 
 new Vue({
   router,

@@ -1,0 +1,15 @@
+/*
+  App variables
+*/
+
+// Drag and drop
+$dnd-preview-color: lightblue;
+$dnd-ghost-color: rgba(0, 0, 0, 0.1);
+$dnd-ghost-opacity: 0.5;
+
+$dnd-dropped-item-border-size: 2px;
+$dnd-dropped-item-border-type: dashed;
+$dnd-dropped-item-border: $dnd-dropped-item-border-size
+  $dnd-dropped-item-border-type transparent;
+$dnd-dropped-item-border-color-hover: #ccc;
+$dnd-dropped-item-border-color-active: blue;

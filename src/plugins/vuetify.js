@@ -3,4 +3,15 @@ import Vuetify from "vuetify/lib";
 
 Vue.use(Vuetify);
 
-export default new Vuetify({});
+const config = {
+  customVariables: ["~/styles/vars.scss"],
+  theme: {
+    dark: false,
+    themes: {
+      light: {},
+      dark: {},
+    },
+  },
+};
+
+export default new Vuetify(config);
